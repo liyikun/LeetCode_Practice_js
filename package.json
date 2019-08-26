@@ -1,0 +1,26 @@
+{
+  "name": "leetcode_practice_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1152.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liyikun/LeetCode_Practice_js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/liyikun/LeetCode_Practice_js/issues"
+  },
+  "homepage": "https://github.com/liyikun/LeetCode_Practice_js#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.3"
+  }
+}
