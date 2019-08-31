@@ -20,6 +20,7 @@ var lengthOfLongestSubstring = function(s) {
         max = Math.max(max, j - i + 1)
         map.set(c, j + 1)
     }
+    console.log(map)
 
     return max
 };
