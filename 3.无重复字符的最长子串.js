@@ -11,9 +11,11 @@ var lengthOfLongestSubstring = function(s) {
     if(s.length === 0) return 0
     let map = new Map()
 
+    let count = 0
+
     for(let i = 0;i < s.length; i++) {
         if(map.has(s[i])) {
-               
+            count = Math.max(map.get(s[i]), i)
         }
     }
 
