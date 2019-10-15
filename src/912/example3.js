@@ -10,34 +10,42 @@
  * @return {number[]}
  */
 var sortArray = function(nums) {
-    let less = (i, j) => {
-        return nums[i] < nums[j]
-    }
-    let swap = (i, j) => {
-        if(i === j) return
+
+    let len = nums.length
+    
+    if(len < 2) return nums
+
+    let swap = (i , j) => {
         [nums[i], nums[j]] = [nums[j], nums[i]]
     }
-    let partition = (lo, hi) => {
-        let i = lo, j = hi + 1
-        while(true) {
-            while(less(++i, lo)) if(i == hi) break
-            while(less(lo, --j)) if(j == lo) break
-            if(i >= j) break
-            swap(i, j)
-        }
-        swap(lo, j)
-        return j
-    }
-    let sort = (lo, hi) => {
-        if(hi <= lo) return
-        let j = partition(lo, hi)
 
-        sort(lo, j - 1)
+    let partition = (lo, hi) => {
+        let left = lo, right = hi + 1
+        let v = nums[lo]
+
+        while(true) {
+            while(nums[++left] < v) if(left === hi) break
+            while(v < nums[--right]) if(right === lo) break
+            if(left >= right) break
+            swap(left, right)
+        }
+
+        swap(lo, right)
+
+        return right
+    }
+
+    let sort = (lo, hi) => {
+        if(lo >= hi) return
+        
+        let j =  partition(lo, hi)
+
+        sort(lo, j)
         sort(j + 1, hi)
     }
 
-    sort(0, nums.length - 1)
-    
+    sort(0, len - 1)
+
     return nums
 };
 // @lc code=end

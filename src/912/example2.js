@@ -11,41 +11,43 @@
  */
 var sortArray = function(nums) {
     let len = nums.length
+    
+    if(len <= 1) return nums
 
-    let swap = (a, b) => {
-        if(a === b) return
-        [nums[a], nums[b]] = [nums[b], nums[a]]
+    let swap = (i, j) => {
+        if(i === j) return
+        [nums[i], nums[j]] = [nums[j], nums[i]]
     }
 
-    let adjustHeap = (index, heapSize) => {
-        let Imax, Left, Right
+    let adjustHeap = (index, size) => {
+        let iMax, left, right
 
         do {
-            Imax = index
-            Left = index * 2 + 1
-            Right = index * 2 + 2
+            iMax = index
+            left = index * 2 + 1
+            right = index * 2 + 2
 
-            if(Left < heapSize && nums[Left] > nums[Imax]) {
-                Imax = Left
+            if(left < size && nums[left] > nums[iMax]) {
+                iMax = left
             }
 
-            if(Right < heapSize && nums[Right] > nums[Imax]) {
-                Imax = Right
+            if(right < size && nums[right] > nums[iMax]) {
+                iMax = right
             }
 
-            if(Imax !== index) {
-                swap(Imax, index)
-                index = Imax
-                Imax = undefined
-            } 
-        } while(Imax !== index)
+            if(iMax !== index) {
+                swap(iMax, index)
+                index = iMax
+                iMax = undefined
+            }
+        } while(index !== iMax)
     }
 
-    for(let i = Math.floor((len - 1) / 2); i >= 0; i--) {
+    for(let i = Math.floor((len - 1) / 2); i > 0; i--) {
         adjustHeap(i, len)
     }
 
-    for(let i = len - 1; i >= 0; i--) {
+    for(let i = len - 1; i > 0 ; i--) {
         swap(0, i)
         adjustHeap(0, i)
     }
