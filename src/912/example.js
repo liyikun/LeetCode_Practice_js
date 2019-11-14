@@ -24,7 +24,7 @@ class MaxHeap {
     up(i) {
         while(i > 1 && this.less(Math.floor(i / 2), i)) {
             this.swap(Math.floor(i / 2), i)
-            i = Math.floor(i / 2     )       
+            i = Math.floor(i / 2)       
         }
     }
     add(num) {
