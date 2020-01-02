@@ -14,6 +14,8 @@ var isMatch = function (s, p) {
             dp[0][i+1] = true;
         }
     }
+    console.log(dp)
+    return
 
     for (let i = 0; i < s.length; i++) {
         for (let j = 0; j < p.length; j++) {
