@@ -12,7 +12,7 @@ var letterCasePermutation = function(S) {
       let pre = str.slice(0, i);
       let cur = str.slice(i, i + 1);
       let end = str.slice(i + 1);
-      if (Number(cur) || cur === "0") continue;
+      if (!isNaN(Number(cur))) continue;
       if (IsUpper(cur)) {
         let upper = pre + cur.toLowerCase() + end;
         result.push(upper);
